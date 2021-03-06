@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +36,17 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     textView?.append("\n")
                 }
+            }
+        })
+
+        clearTextView()
+    }
+
+    fun clearTextView() {
+        clearButton?.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                textView?.setText("")
+                clicksCount = 0
             }
         })
     }
