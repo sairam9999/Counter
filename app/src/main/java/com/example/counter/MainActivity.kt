@@ -28,19 +28,20 @@ class MainActivity : AppCompatActivity() {
         resetButton = findViewById(R.id.resetButton)
         textView?.text = ""
         textView?.movementMethod = ScrollingMovementMethod()
+        var inputText = userInputText?.text
 
         clickButton?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 clicksCount += 1
-                textView?.append("# of times Button Clicked: $clicksCount")
+                textView?.append("$inputText by # of times Button Clicked: $clicksCount")
                 if (clicksCount != 1) {
                     textView?.append("s\n")
                 } else {
                     textView?.append("\n")
                 }
+                userInputText?.text?.clear()
             }
         })
-
         clearTextView()
         resetData()
     }
@@ -49,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         clearButton?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 textView?.setText("")
-                resetData()
             }
         })
     }
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View?) {
                 clicksCount = 0
                 textView?.setText("")
+                userInputText?.setText("")
             }
         })
     }
