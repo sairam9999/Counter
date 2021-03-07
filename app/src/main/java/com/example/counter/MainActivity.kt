@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         clearTextView()
     }
 
+
+
     fun clearTextView() {
         clearButton?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
