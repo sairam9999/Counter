@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         userInputText = findViewById(R.id.editText)
         textView = findViewById(R.id.textView)
         clickButton = findViewById(R.id.clickButton)
