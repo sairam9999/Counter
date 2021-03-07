@@ -14,18 +14,18 @@ class MainActivity : AppCompatActivity() {
     private var textView: TextView? = null
     private var clickButton: Button? = null
     private var clearButton: Button? = null
+    private var resetButton: Button? = null
     private var clicksCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         userInputText = findViewById(R.id.editText)
         textView = findViewById(R.id.textView)
         clickButton = findViewById(R.id.clickButton)
         clearButton = findViewById(R.id.clearButton)
+        resetButton = findViewById(R.id.resetButton)
         textView?.text = ""
         textView?.movementMethod = ScrollingMovementMethod()
 
@@ -42,15 +42,23 @@ class MainActivity : AppCompatActivity() {
         })
 
         clearTextView()
+        resetData()
     }
-
-
 
     fun clearTextView() {
         clearButton?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 textView?.setText("")
+                resetData()
+            }
+        })
+    }
+
+    fun resetData() {
+        resetButton?.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
                 clicksCount = 0
+                textView?.setText("")
             }
         })
     }
